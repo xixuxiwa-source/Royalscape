@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royalscape | Premium Plant Nursery &amp; Garden Center</title>
+    <meta name="description" content="Premium plant nursery and garden center in Entebbe, Uganda. Crafting living masterpieces with eco-conscious landscape design.">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <!-- Font Awesome for Social Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== CSS RESET & VARIABLES ===== */
+        :root {
+            --color-earth-green: #2A4D3E;
+            --color-deep-green: #1A3A2D;
+            --color-terracotta: #C46D5E;
+            --color-soft-beige: #F5F1E8;
+            --color-light-beige: #FAF8F3;
+            --color-white: #FFFFFF;
+            --color-gray: #5A5A5A;
+            --color-light-gray: #E8E8E8;
+            --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-glass: 0 8px 32px rgba(31, 38, 135, 0.07);
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --border-radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--color-deep-green);
+            background-color: var(--color-light-beige);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== ACCESSIBILITY ===== */
+        .skip-to-main {
+            position: absolute;
+            left: -10000px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        .skip-to-main:focus {
+            position: fixed;
+            left: 20px;
+            top: 20px;
+            width: auto;
+            height: auto;
+            padding: 10px 20px;
+            background: var(--color-earth-green);
+            color: white;
+            z-index: 10000;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        *:focus {
+            outline: 3px solid var(--color-terracotta);
+            outline-offset: 3px;
+        }
+
+        /* ===== HEADER & NAVIGATION ===== */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: var(--transition-smooth);
+        }
+
+        .header-scrolled {
+            box-shadow: var(--shadow-subtle);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--color-earth-green);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            color: var(--color-terracotta);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-deep-green);
+            font-weight: 500;
+            font-size: 16px;
+            transition: var(--transition-smooth);
+            padding: 8px 0;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-terracotta);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-terracotta);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--color-earth-green);
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+                        url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            margin-bottom: 20px;
+            font-weight: 800;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 16px 40px;
+            background: var(--color-terracotta);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            border-radius: 50px;
+            transition: var(--transition-smooth);
+            border: 2px solid transparent;
+            box-shadow: 0 4px 15px rgba(196, 109, 94, 0.3);
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            border-color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(196, 109, 94, 0.4);
+        }
+
+        /* ===== SERVICES SECTION ===== */
+        .services {
+            background-color: var(--color-white);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: var(--color-deep-green);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--color-gray);
+            max-width: 700px;
+            margin: 0 auto 60px;
+            font-size: 18px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: var(--color-soft-beige);
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            border: 1px solid transparent;
+            text-align: center;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-subtle);
+            border-color: var(--color-terracotta);
+            background: white;
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--color-earth-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            color: white;
+            transition: var(--transition-smooth);
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--color-terracotta);
+            transform: scale(1.1);
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--color-deep-green);
+        }
+
+        .service-card p {
+            color: var(--color-gray);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        /* ===== PORTFOLIO SECTION ===== */
+        .portfolio {
+            background-color: var(--color-light-beige);
+        }
+
+        .portfolio-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .filter-btn {
+            padding: 10px 25px;
+            background: transparent;
+            border: 1px solid var(--color-earth-green);
+            color: var(--color-earth-green);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            font-weight: 500;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--color-earth-green);
+            color: white;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            background: white;
+            box-shadow: var(--shadow-subtle);
+            transition: var(--transition-smooth);
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .portfolio-img {
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
+            transition: var(--transition-smooth);
+        }
+
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-info {
+            padding: 25px;
+        }
+
+        .portfolio-info h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--color-deep-green);
+        }
+
+        /* ===== BEFORE/AFTER SLIDER ===== */
+        .before-after-slider {
+            position: relative;
+            height: 400px;
+            width: 100%;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            margin: 50px auto;
+            max-width: 800px;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .slider-container {
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
+
+        .before-img, .after-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .after-img {
+            width: 50%;
+            overflow: hidden;
+        }
+
+        .slider-handle {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            height: 100%;
+            width: 4px;
+            background: white;
+            transform: translateX(-50%);
+            cursor: ew-resize;
+            z-index: 10;
+        }
+
+        .slider-handle::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slider-label {
+            position: absolute;
+            top: 20px;
+            padding: 8px 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            font-weight: 600;
+            z-index: 5;
+        }
+
+        .before-label {
+            left: 20px;
+        }
+
+        .after-label {
+            right: 20px;
+        }
+
+        /* ===== SUSTAINABILITY SECTION ===== */
+        .sustainability {
+            background: linear-gradient(135deg, var(--color-earth-green) 0%, var(--color-deep-green) 100%);
+            color: white;
+        }
+
+        .sustainability .section-title {
+            color: white;
+        }
+
+        .sustainability .section-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .sustainability-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .sustainability-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition-smooth);
+        }
+
+        .sustainability-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .sustainability-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 28px;
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about {
+            background-color: var(--color-white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .about-text h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: var(--color-deep-green);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--color-gray);
+        }
+
+        .contact-info {
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: var(--color-gray);
+        }
+
+        .contact-icon {
+            margin-right: 15px;
+            color: var(--color-terracotta);
+            width: 20px;
+        }
+
+        /* ===== TRUST SIGNALS ===== */
+        .trust-signals {
+            background-color: var(--color-light-beige);
+            padding: 60px 20px;
+        }
+
+        .reviews-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .review-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            width: 100%;
+            max-width: 350px;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .review-stars {
+            color: #FFC107;
+            margin-bottom: 15px;
+        }
+
+        .review-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--color-gray);
+        }
+
+        .review-author {
+            font-weight: 600;
+            color: var(--color-deep-green);
+        }
+
+        .rating-popup {
+            position: fixed;
+            bottom: 120px;
+            right: 30px;
+            background: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            z-index: 999;
+            max-width: 300px;
+            display: none;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .rating-popup.show {
+            display: block;
+        }
+
+        .rating-popup .stars {
+            color: #FFC107;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== GOOGLE MAPS SECTION ===== */
+        .map-section {
+            padding: 60px 20px;
+            background-color: var(--color-white);
+        }
+
+        .map-container {
+            height: 450px;
+            width: 100%;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-subtle);
+            margin-top: 40px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--color-deep-green);
+            color: white;
+            padding: 60px 20px 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 22px;
+            margin-bottom: 25px;
+            color: white;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-links a:hover {
+            color: var(--color-terracotta);
+            padding-left: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        .social-icon:hover {
+            background: var(--color-terracotta);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+        }
+
+        /* ===== WHATSAPP BUTTON ===== */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 30px;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+            z-index: 999;
+            transition: var(--transition-smooth);
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+        }
+
+        /* ===== STICKY FOOTER CTA ===== */
+        .sticky-footer-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: var(--color-earth-green);
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            z-index: 998;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .sticky-footer-cta.show {
+            transform: translateY(0);
+        }
+
+        .sticky-footer-cta .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .sticky-footer-cta p {
+            margin: 0;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .sticky-cta-button {
+            padding: 12px 30px;
+            background: var(--color-terracotta);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .sticky-cta-button:hover {
+            background: white;
+            color: var(--color-terracotta);
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 48px;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .about-img {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 30px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition-smooth);
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .sticky-footer-cta .container {
+                justify-content: center;
+                text-align: center;
+            }
+            
+            .rating-popup {
+                right: 20px;
+                left: 20px;
+                max-width: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .cta-button {
+                padding: 14px 30px;
+                font-size: 16px;
+            }
+            
+            .service-card, .sustainability-card {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to Main Content for Accessibility -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+    <!-- Header & Navigation -->
+    <header id="header">
+        <nav>
+            <a href="#" class="logo">
+                <i data-lucide="leaf" class="logo-icon"></i>
+                Royalscape
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+                <i data-lucide="menu"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#sustainability">Sustainability</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>Crafting Living Masterpieces</h1>
+            <p>Premium plant nursery and garden center in Entebbe. Transforming outdoor spaces with eco-conscious design and native plantings since 2010.</p>
+            <a href="#contact" class="cta-button">Get Your Free Consultation</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Premium Services</h2>
+            <p class="section-subtitle">Comprehensive landscape design and maintenance services tailored to your vision and environment.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i data-lucide="tree-pine"></i>
+                    </div>
+                    <h3>Landscape Design</h3>
+                    <p>Custom landscape designs that harmonize with your property's architecture and natural surroundings.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i data-lucide="sprout"></i>
+                    </div>
+                    <h3>Plant Nursery</h3>
+                    <p>Wide selection of native plants, trees, and shrubs carefully cultivated in our Entebbe nursery.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i data-lucide="droplets"></i>
+                    </div>
+                    <h3>Irrigation Systems</h3>
+                    <p>Smart irrigation solutions that conserve water while keeping your landscape vibrant and healthy.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i data-lucide="shield"></i>
+                    </div>
+                    <h3>Maintenance</h3>
+                    <p>Ongoing care and maintenance services to ensure your landscape remains beautiful year-round.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i data-lucide="home"></i>
+                    </div>
+                    <h3>Garden Center</h3>
+                    <p>Premium gardening supplies, tools, and expert advice for DIY landscape enthusiasts.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i data-lucide="flower"></i>
+                    </div>
+                    <h3>Florist Services</h3>
+                    <p>Beautiful floral arrangements for special occasions, delivered throughout Entebbe.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <h2 class="section-title">Our Transformations</h2>
+            <p class="section-subtitle">See how we've transformed ordinary spaces into extraordinary living environments.</p>
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="residential">Residential</button>
+                <button class="filter-btn" data-filter="commercial">Commercial</button>
+                <button class="filter-btn" data-filter="garden">Garden Design</button>
+            </div>
+            <!-- Before/After Slider -->
+            <div class="before-after-slider">
+                <div class="slider-container" id="sliderContainer">
+                    <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                         alt="Before: Overgrown backyard" class="before-img">
+                    <div class="after-img">
+                        <img src="https://images.unsplash.com/photo-1564013796-bb0c6be67c7d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                             alt="After: Beautiful landscaped garden" class="after-img">
+                    </div>
+                    <div class="slider-handle" id="sliderHandle"></div>
+                    <div class="slider-label before-label">Before</div>
+                    <div class="slider-label after-label">After</div>
+                </div>
+            </div>
+            <div class="portfolio-grid" id="portfolioGrid">
+                <div class="portfolio-item" data-category="residential">
+                    <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                         alt="Modern residential garden" class="portfolio-img">
+                    <div class="portfolio-info">
+                        <h3>Entebbe Waterfront Residence</h3>
+                        <p>Complete landscape overhaul with native plantings and sustainable irrigation.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="commercial">
+                    <img src="https://images.unsplash.com/photo-1586773860418-dc22f8b874bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                         alt="Hotel landscape" class="portfolio-img">
+                    <div class="portfolio-info">
+                        <h3>Lake Victoria Hotel Gardens</h3>
+                        <p>Year-round colorful displays and maintenance for luxury hotel property.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="garden">
+                    <img src="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                         alt="Tropical garden" class="portfolio-img">
+                    <div class="portfolio-info">
+                        <h3>Tropical Paradise Garden</h3>
+                        <p>Creating a private oasis with exotic and native tropical plants.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability Section -->
+    <section class="sustainability" id="sustainability">
+        <div class="container">
+            <h2 class="section-title">Eco-Conscious Design</h2>
+            <p class="section-subtitle">We believe in creating beautiful landscapes that respect and enhance the natural environment.</p>
+            <div class="sustainability-grid">
+                <div class="sustainability-card">
+                    <div class="sustainability-icon">
+                        <i data-lucide="leaf"></i>
+                    </div>
+                    <h3>Native Plantings</h3>
+                    <p>We prioritize indigenous plant species that thrive in local conditions, support biodiversity, and require less water.</p>
+                </div>
+                <div class="sustainability-card">
+                    <div class="sustainability-icon">
+                        <i data-lucide="droplets"></i>
+                    </div>
+                    <h3>Smart Irrigation</h3>
+                    <p>Weather-responsive irrigation systems that reduce water consumption by up to 50% while maintaining plant health.</p>
+                </div>
+                <div class="sustainability-card">
+                    <div class="sustainability-icon">
+                        <i data-lucide="recycle"></i>
+                    </div>
+                    <h3>Permeable Paving</h3>
+                    <p>Eco-friendly paving solutions that allow rainwater to replenish groundwater instead of contributing to runoff.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Royalscape</h2>
+                    <p>Founded in 2010, Royalscape has grown to become Entebbe's premier plant nursery and garden center. Our team of certified landscape architects and horticultural specialists are passionate about creating outdoor spaces that inspire and rejuvenate.</p>
+                    <p>Located on Kitubulu Road in Entebbe, our nursery features an extensive collection of native and exotic plants, trees, and shrubs, all carefully nurtured to ensure they thrive in Ugandan climates.</p>
+                    <p>We believe in a holistic approach to landscape design that balances aesthetic beauty with environmental responsibility.</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i data-lucide="map-pin" class="contact-icon"></i>
+                            <span>Kitubulu Rd, Entebbe, Uganda</span>
+                        </div>
+                        <div class="contact-item">
+                            <i data-lucide="phone" class="contact-icon"></i>
+                            <span>0701 285202</span>
+                        </div>
+                        <div class="contact-item">
+                            <i data-lucide="clock" class="contact-icon"></i>
+                            <span>Open Daily • Closes 7 PM</span>
+                        </div>
+                        <div class="contact-item">
+                            <i data-lucide="truck" class="contact-icon"></i>
+                            <span>Delivery Available Throughout Entebbe</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1586773860418-dc22f8b874bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                         alt="Royalscape nursery" class="about-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Signals Section -->
+    <section class="trust-signals" id="trust">
+        <div class="container">
+            <h2 class="section-title">Trusted by Entebbe Homeowners</h2>
+            <p class="section-subtitle">Don't just take our word for it - see what our clients have to say about their experience with Royalscape.</p>
+            <div class="reviews-container">
+                <div class="review-card">
+                    <div class="review-stars">
+                        ★★★★★
+                    </div>
+                    <p class="review-text">"Royalscape transformed our backyard into a paradise. Their attention to detail and knowledge of native plants is incredible."</p>
+                    <div class="review-author">— Sarah K., Entebbe</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">
+                        ★★★★★
+                    </div>
+                    <p class="review-text">"The team delivered exactly what they promised - on time and on budget. Our garden has never looked better!"</p>
+                    <div class="review-author">— James M., Kampala</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Maps Section -->
+    <section class="map-section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Visit Our Nursery</h2>
+            <p class="section-subtitle">Come explore our plant nursery and garden center on Kitubulu Road in Entebbe.</p>
+            <div class="map-container">
+                <!-- Google Maps Embed -->
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.6341599780955!2d32.44685797584078!3d0.050398799965549075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dba7bc5a5fe85%3A0xe1b5a82b7c6d5c11!2sKitubulu%20Rd%2C%20Entebbe%2C%20Uganda!5e0!3m2!1sen!2sus!4v1703949635113!5m2!1sen!2sus" 
+                    width="100" 
+                    height="100" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Royalscape Location on Kitubulu Road, Entebbe">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Royalscape</h3>
+                    <p>Premium plant nursery and garden center creating living masterpieces in Entebbe since 2010.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Pinterest">
+                            <i class="fab fa-pinterest-p"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#sustainability">Sustainability</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Landscape Design</a></li>
+                        <li><a href="#">Plant Nursery</a></li>
+                        <li><a href="#">Irrigation Systems</a></li>
+                        <li><a href="#">Garden Maintenance</a></li>
+                        <li><a href="#">Florist Services</a></li>
+                        <li><a href="#">Garden Supplies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i data-lucide="map-pin" style="width: 16px; margin-right: 8px;"></i> Kitubulu Rd, Entebbe</li>
+                        <li><i data-lucide="phone" style="width: 16px; margin-right: 8px;"></i> 0701 285202</li>
+                        <li><i data-lucide="clock" style="width: 16px; margin-right: 8px;"></i> Open Daily - Closes 7 PM</li>
+                        <li><i data-lucide="mail" style="width: 16px; margin-right: 8px;"></i> info@royalscape.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Royalscape Plant Nursery & Garden Center. All rights reserved. | 3FPP+R2 Entebbe</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sticky Footer CTA -->
+    <div class="sticky-footer-cta" id="stickyCta">
+        <div class="container">
+            <p>Ready to transform your outdoor space?</p>
+            <button class="sticky-cta-button" id="quoteBtn">Get a Free Quote</button>
+        </div>
+    </div>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/256701285202?text=Hello%20Royalscape,%20I'm%20interested%20in%20your%20landscape%20services" 
+       class="whatsapp-button" target="_blank" aria-label="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Google Reviews Popup -->
+    <div class="rating-popup" id="ratingPopup">
+        <div class="stars">★★★★★</div>
+        <p><strong>Rated 4.0 ★★★★ (2)</strong></p>
+        <p>Google Reviews</p>
+        <p>"Excellent service and beautiful plants!"</p>
+        <button id="closePopup" style="margin-top: 10px; background: var(--color-terracotta); color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;">Close</button>
+    </div>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+        
+        // DOM Elements
+        const header = document.getElementById('header');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        const sliderContainer = document.getElementById('sliderContainer');
+        const sliderHandle = document.getElementById('sliderHandle');
+        const portfolioGrid = document.getElementById('portfolioGrid');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const stickyCta = document.getElementById('stickyCta');
+        const ratingPopup = document.getElementById('ratingPopup');
+        const closePopupBtn = document.getElementById('closePopup');
+        const quoteBtn = document.getElementById('quoteBtn');
+        
+        // Parallax scrolling effect for hero background
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroBg = document.querySelector('.hero-bg');
+            
+            // Hero parallax effect
+            if (heroBg) {
+                heroBg.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+            
+            // Header scroll effect
+            if (scrolled > 50) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+            
+            // Show sticky CTA after scrolling past hero
+            if (scrolled > 500) {
+                stickyCta.classList.add('show');
+            } else {
+                stickyCta.classList.remove('show');
+            }
+            
+            // Show rating popup after scrolling a bit
+            if (scrolled > 800 && !sessionStorage.getItem('popupShown')) {
+                setTimeout(() => {
+                    ratingPopup.classList.add('show');
+                    sessionStorage.setItem('popupShown', 'true');
+                }, 2000);
+            }
+        });
+        
+        // Mobile menu toggle
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.setAttribute('data-lucide', 'x');
+                lucide.createIcons();
+            } else {
+                icon.setAttribute('data-lucide', 'menu');
+                lucide.createIcons();
+            }
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.setAttribute('data-lucide', 'menu');
+                lucide.createIcons();
+            });
+        });
+        
+        // Before/After Slider
+        let isDragging = false;
+        
+        sliderHandle.addEventListener('mousedown', startDrag);
+        sliderHandle.addEventListener('touchstart', startDrag);
+        
+        function startDrag(e) {
+            isDragging = true;
+            document.addEventListener('mousemove', onDrag);
+            document.addEventListener('touchmove', onDrag);
+            document.addEventListener('mouseup', stopDrag);
+            document.addEventListener('touchend', stopDrag);
+            e.preventDefault();
+        }
+        
+        function onDrag(e) {
+            if (!isDragging) return;
+            
+            let clientX;
+            if (e.type.includes('touch')) {
+                clientX = e.touches[0].clientX;
+            } else {
+                clientX = e.clientX;
+            }
+            
+            const containerRect = sliderContainer.getBoundingClientRect();
+            let newWidth = ((clientX - containerRect.left) / containerRect.width) * 100;
+            
+            // Constrain between 0 and 100
+            newWidth = Math.max(0, Math.min(newWidth, 100));
+            
+            document.querySelector('.after-img').style.width = `${newWidth}%`;
+            sliderHandle.style.left = `${newWidth}%`;
+        }
+        
+        function stopDrag() {
+            isDragging = false;
+            document.removeEventListener('mousemove', onDrag);
+            document.removeEventListener('touchmove', onDrag);
+        }
+        
+        // Portfolio Filtering
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                const filter = btn.getAttribute('data-filter');
+                const portfolioItems = portfolioGrid.querySelectorAll('.portfolio-item');
+                
+                portfolioItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateY(0)';
+                        }, 10);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+        
+        // Service Card Hover Effects
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+        
+        // Quote Button Click
+        quoteBtn.addEventListener('click', () => {
+            // Scroll to contact section
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            
+            // Show a simple form (in a real implementation, this would open a modal)
+            setTimeout(() => {
+                alert("Thank you for your interest! Please call us at 0701 285202 or visit our nursery on Kitubulu Road for a free consultation.");
+            }, 500);
+        });
+        
+        // Close Rating Popup
+        closePopupBtn.addEventListener('click', () => {
+            ratingPopup.classList.remove('show');
+        });
+        
+        // Auto-close rating popup after 10 seconds
+        setTimeout(() => {
+            if (ratingPopup.classList.contains('show')) {
+                ratingPopup.classList.remove('show');
+            }
+        }, 10000);
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Initialize with some animations
+        document.addEventListener('DOMContentLoaded', () => {
+            // Animate service cards on load
+            setTimeout(() => {
+                document.querySelectorAll('.service-card').forEach((card, index) => {
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, index * 100);
+                });
+            }, 500);
+            
+            // Initialize cards with hidden state
+            document.querySelectorAll('.service-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+        });
+        
+        // Keyboard navigation for accessibility
+        document.addEventListener('keydown', (e) => {
+            // Close mobile menu with Escape key
+            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.setAttribute('data-lucide', 'menu');
+                lucide.createIcons();
+            }
+            
+            // Tab key navigation trap for mobile menu
+            if (navLinks.classList.contains('active') && e.key === 'Tab') {
+                const focusableElements = navLinks.querySelectorAll('a, button');
+                const firstElement = focusableElements[0];
+                const lastElement = focusableElements[focusableElements.length - 1];
+                
+                if (e.shiftKey && document.activeElement === firstElement) {
+                    e.preventDefault();
+                    lastElement.focus();
+                } else if (!e.shiftKey && document.activeElement === lastElement) {
+                    e.preventDefault();
+                    firstElement.focus();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
